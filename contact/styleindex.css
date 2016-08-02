@@ -1,0 +1,26 @@
+body {
+  animation-duration: 10s;
+  animation-name: slidein;
+  animation-direction:alternate;
+  animation-iteration-count:infinite;
+}
+
+@keyframes slidein {
+  from {
+    background-color: #ccffff;
+  }
+
+  to {
+   background-color: #e6f7ff;
+  }
+}
+p{
+  font-family:"Microsoft JhengHei",monospace;
+  font-size: 17px;
+  color:#80d4ff;
+}
+#subbutton{
+  font-family:"Microsoft JhengHei",monospace;
+  font-size: 15px;
+  color:#bfbfbf;
+}
