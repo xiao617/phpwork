@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$_SESSION["create"]=NULL;
+?>
 <html>
 <head>
   <meta charset="utf-8">
@@ -34,9 +37,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">my contact table<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
       </ul>
+    
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -45,9 +47,21 @@
   <p class="text-center">
 <img src="img/network6.png" height="75%" width="75%">
 </p>
-<audio controls autoplay>
-  <source src="music/friend_piano.mp3" type="audio/mpeg">
-</audio>
+
 </div>
+
+<div class="row">
+<div class=".col-md-4"><br></div> 
+<div class=".col-md-4">
+<form method="post" action="loginin.php">
+  <p class="text-center"><strong>帳號：</strong><input type="text" name="username"></p>
+  <p class="text-center"><strong>密碼：<strong><input type="password" name="pword"></p>
+  <p class="text-center" id="subbutton"><input type="submit" value="登入"></p>
+</form>
+<p class="text-center" style="font-size:12px"><a href="newuser.php">新增帳號</a></p>
+<div class=".col-md-4"></div> 
+<div class=".col-md-4"><br></div> 
+</div>
+
 </body>
 </html>

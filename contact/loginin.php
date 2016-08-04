@@ -16,18 +16,22 @@
 include('link.php');
 $getIDSQL = "SELECT `username`,`pword`FROM `admin` ORDER BY `id` ASC";
 $result = mysql_query($getIDSQL);
-
+$type=0;
 while($row=mysql_fetch_assoc($result)){
 	$userpass[$row['username']]=$row['pword'];
 }
 
 if(! $_POST['username'] || ! $_POST['pword']){
-	$url = "http://localhost:8888/contact/index.html";
+	$url = "index.html";
 	if(!$_POST['username']){
-		echo "您沒有輸入帳號";
+		//echo "您沒有輸入帳號";
+		$url = "index.php";
+		$type=1;
 	}
 	else{
-		echo "您沒有輸入密碼";
+		//echo "您沒有輸入密碼";
+		$url = "index.php";
+		$type=2;
 	}
 }
 else{
@@ -36,20 +40,39 @@ else{
 
 	if($userpass[$username]==$pword){
 		
-		$url = "http://localhost:8888/contact/index_loginaf.html";
-		echo "網頁即將跳轉";
-		
+		$url = "index_loginaf.php";
+		session_start();
+		$_SESSION["user"]=$_POST['username'];
+		$sql="SELECT `id`,`username` FROM `admin` WHERE 1";
+		$result=mysql_query($sql);
+	
+		while($res=mysql_fetch_array($result)){
+			if($_POST['username']==$res['username']){
+				$_SESSION["id"]=$res['id'];
+			}
+		}		//echo "網頁即將跳轉";
+		$type=3;
 	}
 	else{
-		$url = "http://localhost:8888/contact/index.html";
-		echo "帳號密碼錯誤，請重新輸入";
+		$url = "index.php";
+		//echo "帳號密碼錯誤，請重新輸入";
+		$type=4;
 	}
 }
-
+echo "網頁即將跳轉";
 ?>
 <html>
 <head>
-	<meta http-equiv="refresh" content="3;url=<?php echo $url; ?>">
+	<meta http-equiv="refresh" content="1;url=<?php echo $url; ?>">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script>
+	var x=<?php echo $type;?>;
+	if(x==1)	alert('您沒有輸入帳號');
+	else if(x==2) alert('您沒有輸入密碼');
+	else if(x==3) alert('登入成功');
+	else if(x==4) alert('帳號密碼錯誤，請重新輸入');
+	
+	</script>
 </head>
 <body>
 </body>

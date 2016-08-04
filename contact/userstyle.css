@@ -1,0 +1,52 @@
+body {
+  animation-duration: 10s;
+  animation-name: slidein;
+  animation-direction:alternate;
+  animation-iteration-count:infinite;
+}
+
+@keyframes slidein {
+  from {
+    background-color: #ccffff;
+  }
+
+  to {
+   background-color: #e6f7ff;
+  }
+}
+p{
+  font-family: 'Indie Flower', cursive;
+  font-size: 80px;
+  color: #33ccff;
+}
+.cd{
+  font-family: 'Indie Flower', cursive;
+  font-size: 40px;
+  color: #4da6ff;
+}
+.fr{
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+  color: #4da6ff;
+}
+/*<input type="submit" value="enter" style="background-color:#e6f2ff">*/
+.ins{
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  color: #4da6ff;
+}
+.tth{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  color: #3385ff;
+}
+.tthin{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 30px;
+  color: #3385ff;
+}
+.ahr{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  color: #3385ff;
+}
